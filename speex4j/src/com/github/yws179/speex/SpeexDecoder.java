@@ -19,9 +19,9 @@ public class SpeexDecoder {
 
     public static native void destroy();
 
-    public static byte[] shortArr2byteArr(short[] shortArr, int shortArrLen){
-        byte[] byteArr = new byte[shortArrLen * 2];
-        ByteBuffer.wrap(byteArr).order(ByteOrder.LITTLE_ENDIAN).asShortBuffer().put(shortArr);
+    public static byte[] shortArr2byteArr(short[] data){
+        byte[] byteArr = new byte[data.length * 2];
+        ByteBuffer.wrap(byteArr).order(ByteOrder.LITTLE_ENDIAN).asShortBuffer().put(data);
         return byteArr;
     }
 

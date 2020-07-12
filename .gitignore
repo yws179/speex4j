@@ -1,0 +1,7 @@
+native/cmake-build-debug
+
+out
+
+.idea
+.iml
+.DS_Store
