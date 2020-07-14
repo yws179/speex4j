@@ -5,8 +5,14 @@ using namespace std;
 
 int main() {
 
-    FILE * fin = fopen("./test/tianqi.spx", "r");
-    FILE * fout = fopen("./test/out.pcm", "w");
+    FILE * fin = fopen("/home/yws/Documents/speex4j/native/test/tianqi.spx", "r");
+    FILE * fout = fopen("/home/yws/Documents/speex4j/native/test/out.pcm", "w");
+
+    if (fin == NULL || fout == NULL) {
+        cout << "文件无法打开" << endl;
+        return 1;
+    }
+
     fseek(fin, 0, SEEK_END);
     int len_data = ftell(fin);
     rewind(fin);
@@ -23,6 +29,9 @@ int main() {
     fwrite(output, sizeof(short), r, fout);
 
     spx_destroy();
+
+    fclose(fin);
+    fclose(fout);
 
     return 0;
 }
