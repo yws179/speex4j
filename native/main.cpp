@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
 
-    FILE * fin = fopen("/home/yws/Documents/speex4j/native/test/tianqi.spx", "r");
+    FILE * fin = fopen("/home/yws/Documents/speex4j/native/test/test.spx", "r");
     FILE * fout = fopen("/home/yws/Documents/speex4j/native/test/out.pcm", "w");
 
     if (fin == NULL || fout == NULL) {
@@ -24,7 +24,7 @@ int main() {
 
     spx_init();
 
-    int r = spx_decode(data, len_data, output, 42);
+    int r = spx_decode(data, len_data, output, 38);
     printf("r: %d\n", r);
     fwrite(output, sizeof(short), r, fout);
 
